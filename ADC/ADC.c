@@ -15,7 +15,7 @@
 #define A2 pinbase + 2
 #define A3 pinbase + 3
 
-int main(void){
+int main(void) {
 	int value;
 	float voltage;
 	
@@ -23,13 +23,13 @@ int main(void){
 	
 	wiringPiSetup(); //Initialize wiringPi.
 	
-	pcf8591Setup(pinbase,address);
+	pcf8591Setup(pinbase, address);
 	
-	while(1){
+	while (1) {
 		value = analogRead(A0);  //read analog value of A0 pin
-		analogWrite(pinbase+0,value);
+		analogWrite(pinbase + 0, value);
 		voltage = (float)value / 255.0 * 3.3;  // Calculate voltage
-		printf("ADC value : %d  ,\tVoltage : %.2fV\n",value,voltage);
+		printf("ADC value : %d  ,\tVoltage : %.2fV\n", value, voltage);
 		delay(200);
 	}
 }
